@@ -1,0 +1,49 @@
+<html>
+<head>
+<h2><b>Welcome to Mobile billing website</b></h2>
+<script language="javascript" >
+function CalculateAmount()
+{ 
+  var data=form1.txtdatausage.value;
+if(data<=1024)
+   {form1.txtbill.value=data/10;}
+else if(data<=2048)
+   {form1.txtbill.value=(data-1024)/10+90;}
+else if(data<=3072)
+   {form1.txtbill.value=(data-2048)/7+150;}
+else if(data<=4096)
+   {form1.txtbill.value=(data-3072)/5+250;}
+else if(data>=4097&&data<=4403)
+   { 
+   form1.txtbill.value=300;	
+   }
+   else if(data>=4404 && data <=5120)
+   {
+   form1.txtbill.value=(data-4404)/10+300;
+   }
+   else 
+   {
+   alert("Your pack is not available");
+   }
+}
+
+</script>
+</head><body style="background-color:powderblue;">
+<form id="form1">
+<table>
+ <tr>
+   <td>Enter the amount of data used in MegaBits:</td>
+   <td><input type="text" id="txtdatausage"/></td>
+ </tr>
+ <tr>
+   <td> </td>
+   <td> <input type="button" id="btndisplay" value="Display Bill" OnClick="CalculateAmount()" /></td>
+ </tr>
+ <tr> 
+   <td> Total bill amount in rupees : </td>
+   <td> <input type="text" id="txtbill" value=" " readonly="true" /></td>
+ </tr>
+</table>
+</form>
+</body>
+</html>
